@@ -2,18 +2,22 @@
 
 exibirPrimos(1500);
 
-function exibirPrimos(limite){
-  let primos = 0;
-  for (let numero=1; numero<=limite; numero++){
-    for(let fator=1; fator<=numero; fator++){
+function exibirPrimos(limite){   
+  
+  for (let numero=2; numero<=limite; numero++){
+    let primos = true;
+    let dez = 10;
+    if (numero <= 10){
+      dez = numero;
+    }    
+    for(let fator=2; fator<dez; fator++){  
       if(numero % fator === 0){
-        primos++;        
+        primos = false;  
+        break;              
       }      
     }    
-    if (primos===2){
-      console.log(numero);          
-    } 
-    fator = 1;
-    primos = 0;
-  }  
+    if (primos){
+      console.log(numero);       
+      }         
+  } 
 }
